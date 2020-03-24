@@ -1,73 +1,106 @@
-package com.appsdeveloperblog.app.ws.shared.dto;
+package com.appsdeveloperblog.app.ws.io.entity;
 
 import java.io.Serializable;
 
-public class UserDto  implements Serializable{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+//@Entity(name = "users")
+public class UserEntity implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4462208319000844792L;
+	private static final long serialVersionUID = 5313493413859894403L;
 
+	
+	@Id
+	@GeneratedValue
 	private long id;
+	
+	@Column(nullable = false)
 	private String userId;
-	private String firstName;
+	
+	@Column(nullable = false,length = 50)
+	private String firstName;	
+	@Column(nullable = false,length = 50)
 	private String lastName;
+	@Column(nullable = false,length = 120)
 	private String email;
+	@Column(nullable = false)
 	private String encrytedPassword;
 	private String emailVerificationToken;
-	private Boolean emailVerficationStatus = false;
 	
+	@Column(nullable = false,columnDefinition = "boolean default false")
+	private Boolean emailVerficationStatus;
+
 	public Boolean getEmailVerficationStatus() {
 		return emailVerficationStatus;
 	}
+
 	public void setEmailVerficationStatus(Boolean emailVerficationStatus) {
 		this.emailVerficationStatus = emailVerficationStatus;
 	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getEncrytedPassword() {
 		return encrytedPassword;
 	}
+
 	public void setEncrytedPassword(String encrytedPassword) {
 		this.encrytedPassword = encrytedPassword;
 	}
+
 	public String getEmailVerificationToken() {
 		return emailVerificationToken;
 	}
+
 	public void setEmailVerificationToken(String emailVerificationToken) {
 		this.emailVerificationToken = emailVerificationToken;
 	}
 
-	
+
 	
 	
 }
