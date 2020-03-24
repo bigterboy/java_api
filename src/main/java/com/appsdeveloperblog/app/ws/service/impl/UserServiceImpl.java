@@ -19,10 +19,15 @@ public class UserServiceImpl implements UserService {
 	public UserDto createUser(UserDto user) {
 		// TODO Auto-generated method stub
 		
+		
+		//UserEntity storedUserDetails = ; 
+		
+		if(userRepository.findUserByEmail(user.getEmail()) != null) throw new RuntimeException("RECORD ALREADY EXISTS");
+		
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(user, userEntity);
 		
-		userEntity.setEncrytedPassword("test");
+		userEntity.setEncrytedPassword("test"); 
 		userEntity.setUserId("testUserId");
 		
 		
