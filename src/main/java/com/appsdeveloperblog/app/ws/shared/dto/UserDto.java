@@ -14,10 +14,17 @@ public class UserDto  implements Serializable{
 	private String firstName;
 	private String lastName;
 	private String email;
+    private String password;
 	private String encrytedPassword;
 	private String emailVerificationToken;
 	private Boolean emailVerficationStatus = false;
 	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public Boolean getEmailVerficationStatus() {
 		return emailVerficationStatus;
 	}
